@@ -1,3 +1,7 @@
 Small collection of custom macports.
 
 To setup just read the docs here: http://guide.macports.org/#development.local-repositories
+
+You will also need to add the following to your .profile
+
+export DYLD_LIBRARY_PATH="/opt/local/lib/mysql5/mysql:$DYLD_LIBRARY_PATH"
