@@ -60,7 +60,6 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DINSTALL_INFODIR:STRING=share/info \
                             -DMYSQL_DATADIR:PATH=${dbdir} \
                             -DFEATURE_SET:STRING=community \
-                            -DWITH_EMBEDDED_SERVER=OFF \
                             \
                             -DINSTALL_BINDIR:STRING=lib/${mysql}/bin \
                             -DINSTALL_SCRIPTDIR:STRING=lib/${mysql}/bin \
@@ -77,7 +76,7 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             \
                             -DMYSQL_UNIX_ADDR:PATH=${sockfile} \
                             -DSYSCONFDIR:PATH=${sysconfdir} \
-                            -DWITH_EMBEDDED_SERVER:BOOL=ON \
+                            -DWITH_EMBEDDED_SERVER:BOOL=OFF \
                             -DWITH_READLINE:STRING=system \
                             -DWITH_SSL:STRING=system \
                             -DWITH_ZLIB:STRING=system
