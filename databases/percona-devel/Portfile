@@ -6,7 +6,7 @@ PortGroup               cmake 1.0
 
 name                    percona-devel
 conflicts               mysql5 mysql4 mysql5-devel
-version                 5.5.11-rel20.2
+version                 5.5.12-rel20.3
 revision                1
 set branch              [regsub rel $version ""]
 homepage                http://www.percona.com/
@@ -28,9 +28,9 @@ long_description \
 master_sites \
     http://www.percona.com/redir/downloads/Percona-Server-5.5/Percona-Server-${branch}/source/
 
-checksums md5     2ce38bb65dcb64f0b8febb98ef054fae \
-          sha1    c6b76926f83ac9944bb389f369cc4f9b8cf54d6d \
-          rmd160  a4dca8768253fcbca9455d319018ca2959335664
+checksums md5     6e4a48a5d2f291fbb72fac9a609d0e14 \
+          sha1    4d7535bb57a0414a106d2f74b7d5044f4d404548 \
+          rmd160  88a1eac4992a6cd7bd3d6866553ac8ca649539e5
 
 depends_lib \
     port:zlib \
