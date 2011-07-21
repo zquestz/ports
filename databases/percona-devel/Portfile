@@ -28,9 +28,9 @@ long_description \
 master_sites \
     http://www.percona.com/redir/downloads/Percona-Server-5.5/Percona-Server-${branch}/source/
 
-checksums md5     6e4a48a5d2f291fbb72fac9a609d0e14 \
-          sha1    4d7535bb57a0414a106d2f74b7d5044f4d404548 \
-          rmd160  88a1eac4992a6cd7bd3d6866553ac8ca649539e5
+checksums md5     70a9153a66f416d22352f26e5d7385e0 \
+          sha1    42476908a406e042e886eb0fa73c9674299fcf27 \
+          rmd160  81b76d0d5d155d9e093b9155c46f2c3a0e7b3a59
 
 depends_lib \
     port:zlib \
