@@ -73,6 +73,7 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DINSTALL_MYSQLSHAREDIR:STRING=share/${mysql}/mysql \
                             -DINSTALL_SHAREDIR:STRING=share/${mysql} \
                             -DINSTALL_SUPPORTFILESDIR:STRING=share/${mysql}/mysql \
+                            -DENABLE_DOWNLOADS:BOOL=ON \
                             \
                             -DMYSQL_UNIX_ADDR:PATH=${sockfile} \
                             -DSYSCONFDIR:PATH=${sysconfdir} \

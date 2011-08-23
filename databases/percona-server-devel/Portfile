@@ -3,7 +3,7 @@
 PortSystem              1.0
 
 name                    percona-server-devel
-version                 5.5.13-rel20.4
+version                 5.5.14-rel20.5
 revision                1
 set branch              [regsub rel $version ""]
 homepage                http://www.percona.com/
