@@ -7,7 +7,7 @@ PortGroup               cmake 1.0
 name                    percona-devel
 conflicts               mysql5 mysql4 mysql5-devel
 version                 5.5.14-rel20.5
-revision                1
+revision                2
 set branch              [regsub rel $version ""]
 homepage                http://www.percona.com/
 categories              databases
@@ -85,6 +85,11 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
 
 # verbose configure output -- remove me 
 configure.args-append       -LAH
+
+pre-build {
+  reinplace "s| -O2||g" ${worksrcpath}/unittest/mysys/CMakeFiles/my_atomic-t.dir/flags.make
+  reinplace "s| -O3||g" ${worksrcpath}/unittest/mysys/CMakeFiles/my_atomic-t.dir/flags.make
+}
 
 post-build {
     set dirs ${worksrcpath} 

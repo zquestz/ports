@@ -8,7 +8,7 @@ PortGroup               cmake 1.0
 name                    mysql5-devel
 conflicts               mysql5 mysql4
 version                 5.5.14
-revision                1
+revision                2
 set branch              [join [lrange [split ${version} .] 0 1] .]
 homepage                http://www.mysql.com/
 categories              databases
@@ -88,6 +88,11 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
 
 # verbose configure output -- remove me 
 configure.args-append       -LAH
+
+pre-build {
+  reinplace "s| -O2||g" ${worksrcpath}/unittest/mysys/CMakeFiles/my_atomic-t.dir/flags.make
+  reinplace "s| -O3||g" ${worksrcpath}/unittest/mysys/CMakeFiles/my_atomic-t.dir/flags.make
+}
 
 post-build {
     set dirs ${worksrcpath} 
