@@ -6,7 +6,7 @@ PortGroup               cmake 1.0
 
 name                    percona-devel
 conflicts               mysql5 mysql4 mysql5-devel
-version                 5.5.13-rel20.4
+version                 5.5.14-rel20.5
 revision                1
 set branch              [regsub rel $version ""]
 homepage                http://www.percona.com/
@@ -28,9 +28,9 @@ long_description \
 master_sites \
     http://www.percona.com/redir/downloads/Percona-Server-5.5/Percona-Server-${branch}/source/
 
-checksums md5     70a9153a66f416d22352f26e5d7385e0 \
-          sha1    42476908a406e042e886eb0fa73c9674299fcf27 \
-          rmd160  81b76d0d5d155d9e093b9155c46f2c3a0e7b3a59
+checksums md5     fefb11ae26a9dd2298d7d2458a543745 \
+          sha1    7c73b42beca243a9a8b325036242eee904a34ac1 \
+          rmd160  72c7da31847b7231e6d7f549ee75adc407b1314b
 
 depends_lib \
     port:zlib \
@@ -79,7 +79,8 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DWITH_EMBEDDED_SERVER:BOOL=OFF \
                             -DWITH_READLINE:STRING=system \
                             -DWITH_SSL:STRING=system \
-                            -DWITH_ZLIB:STRING=system
+                            -DWITH_ZLIB:STRING=system \
+                            -DENABLE_GCOV=OFF
 
 # verbose configure output -- remove me 
 configure.args-append       -LAH
