@@ -7,7 +7,7 @@ PortGroup               cmake 1.0
 
 name                    mysql5-devel
 conflicts               mysql5 mysql4
-version                 5.5.12
+version                 5.5.14
 revision                1
 set branch              [join [lrange [split ${version} .] 0 1] .]
 homepage                http://www.mysql.com/
@@ -34,9 +34,9 @@ master_sites \
     http://mirror.facebook.net/mysql/Downloads/MySQL-${branch}/ \
     http://ftp.plusline.de/mysql/Downloads/MySQL-${branch}/
 
-checksums md5     53d31a0b24f3eb3176185090eff129b9 \
-          sha1    8a4f4c2b762676140722d414d694cddd9c1e3397 \
-          rmd160  e36d6a29e4f92eecfbbdac47d9f0d9a427446da3
+checksums md5     19f43bb9c72b1b5f7ff86a7f921c9244 \
+          sha1    3b17e20be4e8bcc0f94392fb444f4a09f80de2e4 \
+          rmd160  1c84fc3967691e9eedd1b90df780a9d738a709c4
 
 depends_lib \
     port:zlib \
