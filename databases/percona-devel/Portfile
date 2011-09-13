@@ -81,15 +81,11 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DWITH_READLINE:STRING=system \
                             -DWITH_SSL:STRING=system \
                             -DWITH_ZLIB:STRING=system \
+                            -DWITH_UNIT_TESTS:BOOL=OFF \
                             -DENABLE_GCOV=OFF
 
 # verbose configure output -- remove me 
 configure.args-append       -LAH
-
-pre-build {
-  reinplace "s| -O2||g" ${worksrcpath}/unittest/mysys/CMakeFiles/my_atomic-t.dir/flags.make
-  reinplace "s| -O3||g" ${worksrcpath}/unittest/mysys/CMakeFiles/my_atomic-t.dir/flags.make
-}
 
 post-build {
     set dirs ${worksrcpath} 
