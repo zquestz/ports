@@ -7,7 +7,7 @@ PortGroup               cmake 1.0
 name                    percona-devel
 conflicts               mysql5 mysql4 mysql5-devel
 version                 5.5.17-rel22.1
-revision                1
+revision                0
 set branch              [regsub rel $version ""]
 homepage                http://www.percona.com/
 categories              databases

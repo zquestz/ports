@@ -7,8 +7,8 @@ PortGroup               cmake 1.0
 
 name                    mysql5-devel
 conflicts               mysql5 mysql4
-version                 5.5.14
-revision                2
+version                 5.5.18
+revision                0
 set branch              [join [lrange [split ${version} .] 0 1] .]
 homepage                http://www.mysql.com/
 categories              databases
@@ -34,9 +34,9 @@ master_sites \
     http://mirror.facebook.net/mysql/Downloads/MySQL-${branch}/ \
     http://ftp.plusline.de/mysql/Downloads/MySQL-${branch}/
 
-checksums md5     19f43bb9c72b1b5f7ff86a7f921c9244 \
-          sha1    3b17e20be4e8bcc0f94392fb444f4a09f80de2e4 \
-          rmd160  1c84fc3967691e9eedd1b90df780a9d738a709c4
+checksums md5     38b65815249f3bcacf3b0ee85171c486 \
+          sha1    c85f4c082026f88f9354e47e6dc35a505cc89d18 \
+          rmd160  5a10dac0d875cf23e6990e46965f547299c0d6cb
 
 depends_lib \
     port:zlib \
@@ -68,7 +68,7 @@ configure.compiler apple-gcc-4.2
 configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DINSTALL_INFODIR:STRING=share/info \
                             -DMYSQL_DATADIR:PATH=${dbdir} \
-                            \
+                            -DFEATURE_SET:STRING=community \
                             -DINSTALL_BINDIR:STRING=lib/${mysql}/bin \
                             -DINSTALL_SCRIPTDIR:STRING=lib/${mysql}/bin \
                             -DINSTALL_SBINDIR:STRING=lib/${mysql}/libexec \
@@ -81,21 +81,20 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DINSTALL_MYSQLSHAREDIR:STRING=share/${mysql}/mysql \
                             -DINSTALL_SHAREDIR:STRING=share/${mysql} \
                             -DINSTALL_SUPPORTFILESDIR:STRING=share/${mysql}/mysql \
-                            \
+                            -DDEFAULT_CHARSET:STRING=utf8 \
+                            -DDEFAULT_COLLATION:STRING=utf8_general_ci \
                             -DMYSQL_UNIX_ADDR:PATH=${sockfile} \
                             -DSYSCONFDIR:PATH=${sysconfdir} \
-                            -DWITH_EMBEDDED_SERVER:BOOL=ON \
-                            -DWITH_READLINE:STRING=system \
-                            -DWITH_SSL:STRING=system \
-                            -DWITH_ZLIB:STRING=system
+                            -DWITH_EMBEDDED_SERVER:BOOL=OFF \
+                            -DWITH_READLINE:BOOL=ON \
+                            -DWITH_SSL:STRING=yes \
+                            -DWITH_ZLIB:STRING=system \
+                            -DWITH_UNIT_TESTS:BOOL=OFF \
+                            -DENABLE_GCOV:BOOL=OFF \
+                            -DENABLE_DTRACE:BOOL=OFF
 
 # verbose configure output -- remove me 
 configure.args-append       -LAH
-
-pre-build {
-  reinplace "s| -O2||g" ${worksrcpath}/unittest/mysys/CMakeFiles/my_atomic-t.dir/flags.make
-  reinplace "s| -O3||g" ${worksrcpath}/unittest/mysys/CMakeFiles/my_atomic-t.dir/flags.make
-}
 
 post-build {
     set dirs ${worksrcpath} 
