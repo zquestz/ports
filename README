@@ -1,4 +1,9 @@
-Small collection of custom macports.
+Small collection of custom macports. Right now that consists of:
+
+mysql5-devel (5.5.18)
+mysql5-server-devel (5.5.18)
+percona-devel (5.5.17)
+percona-server-devel (5.5.17)
 
 To setup just read the docs here: http://guide.macports.org/#development.local-repositories
 
