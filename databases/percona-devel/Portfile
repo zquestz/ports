@@ -6,8 +6,8 @@ PortGroup               cmake 1.0
 
 name                    percona-devel
 conflicts               mysql5 mysql4 mysql5-devel
-version                 5.5.14-rel20.5
-revision                2
+version                 5.5.17-rel22.1
+revision                1
 set branch              [regsub rel $version ""]
 homepage                http://www.percona.com/
 categories              databases
@@ -28,9 +28,9 @@ long_description \
 master_sites \
     http://www.percona.com/redir/downloads/Percona-Server-5.5/Percona-Server-${branch}/source/
 
-checksums md5     fefb11ae26a9dd2298d7d2458a543745 \
-          sha1    7c73b42beca243a9a8b325036242eee904a34ac1 \
-          rmd160  72c7da31847b7231e6d7f549ee75adc407b1314b
+checksums md5     77e2ff68ff3ffa60a48a1ee045056f15 \
+          sha1    e945653232925f85a4dddaf02647ec80bb03fa07 \
+          rmd160  f29d6983bd1685ca4c76e42ab926aefbecc0e4bb
 
 depends_lib \
     port:zlib \
@@ -60,7 +60,6 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DINSTALL_INFODIR:STRING=share/info \
                             -DMYSQL_DATADIR:PATH=${dbdir} \
                             -DFEATURE_SET:STRING=community \
-                            \
                             -DINSTALL_BINDIR:STRING=lib/${mysql}/bin \
                             -DINSTALL_SCRIPTDIR:STRING=lib/${mysql}/bin \
                             -DINSTALL_SBINDIR:STRING=lib/${mysql}/libexec \
@@ -73,19 +72,23 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DINSTALL_MYSQLSHAREDIR:STRING=share/${mysql}/mysql \
                             -DINSTALL_SHAREDIR:STRING=share/${mysql} \
                             -DINSTALL_SUPPORTFILESDIR:STRING=share/${mysql}/mysql \
-                            -DENABLE_DOWNLOADS:BOOL=ON \
-                            \
+                            -DDEFAULT_CHARSET:STRING=utf8 \
+                            -DDEFAULT_COLLATION:STRING=utf8_general_ci \
                             -DMYSQL_UNIX_ADDR:PATH=${sockfile} \
                             -DSYSCONFDIR:PATH=${sysconfdir} \
                             -DWITH_EMBEDDED_SERVER:BOOL=OFF \
-                            -DWITH_READLINE:STRING=system \
-                            -DWITH_SSL:STRING=system \
+                            -DWITH_READLINE:BOOL=ON \
+                            -DWITH_SSL:STRING=yes \
                             -DWITH_ZLIB:STRING=system \
                             -DWITH_UNIT_TESTS:BOOL=OFF \
-                            -DENABLE_GCOV=OFF
+                            -DENABLE_GCOV:BOOL=OFF \
+                            -DENABLE_DTRACE:BOOL=OFF
 
 # verbose configure output -- remove me 
 configure.args-append       -LAH
+
+# Set compiler
+configure.compiler apple-gcc-4.2
 
 post-build {
     set dirs ${worksrcpath} 

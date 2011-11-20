@@ -62,6 +62,9 @@ if {"darwin" == ${os.platform} && ${os.major} > 8} {
     set mysqluser       mysql
 }
 
+# Set compiler
+configure.compiler apple-gcc-4.2
+
 configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DINSTALL_INFODIR:STRING=share/info \
                             -DMYSQL_DATADIR:PATH=${dbdir} \
