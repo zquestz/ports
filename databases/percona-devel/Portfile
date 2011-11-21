@@ -5,7 +5,7 @@ PortGroup               archcheck 1.0
 PortGroup               cmake 1.0
 
 name                    percona-devel
-conflicts               mysql5 mysql4 mysql5-devel
+conflicts               mysql5 mysql4 mysql5-devel mariadb
 version                 5.5.17-rel22.1
 revision                0
 set branch              [regsub rel $version ""]

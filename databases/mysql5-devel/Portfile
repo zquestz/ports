@@ -6,7 +6,7 @@ PortGroup               archcheck 1.0
 PortGroup               cmake 1.0
 
 name                    mysql5-devel
-conflicts               mysql5 mysql4
+conflicts               mysql5 mysql4 mariadb
 version                 5.5.18
 revision                0
 set branch              [join [lrange [split ${version} .] 0 1] .]
