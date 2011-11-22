@@ -42,7 +42,8 @@ depends_lib \
     port:zlib \
     port:openssl \
     port:readline \
-    port:cmake
+    port:cmake \
+    port:apple-gcc42
 
 archcheck.files         lib/libz.dylib \
                         lib/libssl.dylib \
