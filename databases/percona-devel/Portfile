@@ -7,7 +7,7 @@ PortGroup               cmake 1.0
 name                    percona-devel
 conflicts               mysql5 mysql4 mysql5-devel mariadb
 version                 5.5.17-rel22.1
-revision                0
+revision                1
 set branch              [regsub rel $version ""]
 homepage                http://www.percona.com/
 categories              databases
@@ -36,8 +36,7 @@ depends_lib \
     port:zlib \
     port:openssl \
     port:readline \
-    port:cmake \
-    port:apple-gcc42
+    port:cmake
 
 archcheck.files         lib/libz.dylib \
                         lib/libssl.dylib \
@@ -89,7 +88,7 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
 configure.args-append       -LAH
 
 # Set compiler
-configure.compiler apple-gcc-4.2
+configure.compiler gcc-4.2
 
 post-build {
     set dirs ${worksrcpath} 
