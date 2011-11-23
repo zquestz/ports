@@ -17,7 +17,7 @@ maintainers             jwa ryandesign
 license                 GPL-2
 distname                mysql-${version}
 dist_subdir             mysql5
-use_parallel_build      yes
+use_parallel_build      no
 
 description \
     Multithreaded SQL database server
@@ -42,7 +42,8 @@ depends_lib \
     port:zlib \
     port:openssl \
     port:readline \
-    port:cmake
+    port:cmake \
+    port:gcc44
 
 archcheck.files         lib/libz.dylib \
                         lib/libssl.dylib \
@@ -63,7 +64,7 @@ if {"darwin" == ${os.platform} && ${os.major} > 8} {
 }
 
 # Set compiler
-configure.compiler gcc-4.4
+configure.compiler llvm-gcc-4.2
 
 configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DINSTALL_INFODIR:STRING=share/info \
