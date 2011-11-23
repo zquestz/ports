@@ -88,7 +88,7 @@ configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
 configure.args-append       -LAH
 
 # Set compiler
-configure.compiler gcc-4.2
+configure.compiler gcc-4.4
 
 post-build {
     set dirs ${worksrcpath} 

@@ -63,7 +63,7 @@ if {"darwin" == ${os.platform} && ${os.major} > 8} {
 }
 
 # Set compiler
-configure.compiler gcc-4.2
+configure.compiler gcc-4.4
 
 configure.args-append       -DINSTALL_MANDIR:STRING=share/man \
                             -DINSTALL_INFODIR:STRING=share/info \
