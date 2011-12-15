@@ -1,6 +1,5 @@
 mysql5-devel 0
 mysql5-server-devel 501
 percona 928
-percona-server 1415
-glib2 1823
-libglade2 2423
+percona-server 1426
+glib2 1859
